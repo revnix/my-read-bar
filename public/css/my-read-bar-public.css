@@ -1,0 +1,17 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+progress{
+    width: 100%;
+    position: fixed;
+    appearance: none;
+    border: none;
+    z-index: 1000;
+    border-radius: 50px;
+    
+}
+progress::-webkit-progress-value { 
+    border-radius: 50px;
+}
