@@ -51,9 +51,6 @@ class My_Read_Bar_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-		// echo dirname( __FILE__ ) . 'partials/my-read-bar-public-display.php';
-
-		// exit;
 		require_once dirname( __FILE__ ) . '/partials/my-read-bar-public-display.php';
 		$displayBar = new DisplayBar();
 		$displayBar->register();
@@ -89,19 +86,6 @@ class My_Read_Bar_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in My_Read_Bar_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The My_Read_Bar_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/my-read-bar-public.js', array( 'jquery' ), $this->version, false );
 
 	}

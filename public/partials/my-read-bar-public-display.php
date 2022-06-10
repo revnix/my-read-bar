@@ -42,24 +42,24 @@ class DisplayBar {
                 <?php 
                 }                    
                 ?>
-                background-color:<?php echo $this->mpbBackground; ?>;
-                height:<?php echo $this->mpbHeight.'px'; ?>;
+                background-color:<?php echo esc_html($this->mpbBackground); ?>;
+                height:<?php echo esc_html( $this->mpbHeight.'px' ); ?>;
             }
 
             progress::-webkit-progress-bar {
-                background-color:<?php echo $this->mpbBackground; ?>;
-                height:<?php echo $this->mpbHeight.'px'; ?>;
+                background-color:<?php echo esc_html($this->mpbBackground); ?>;
+                height:<?php echo esc_html( $this->mpbHeight.'px'); ?>;
                 
             }
 
             progress::-webkit-progress-value {
-                background-color:<?php echo $this->mpbForeground; ?>;
-                height:<?php echo $this->mpbHeight.'px'; ?>;
+                background-color:<?php echo esc_html( $this->mpbForeground ); ?>;
+                height:<?php echo esc_html($this->mpbHeight.'px'); ?>;
             }
             
             progress::-moz-progress-bar {
-                background-color:<?php echo $this->mpbForeground; ?>;
-                height:<?php echo $this->mpbHeight.'px'; ?>;
+                background-color:<?php echo esc_html( $this->mpbForeground ); ?>;
+                height:<?php echo esc_html($this->mpbHeight.'px'); ?>;
             }
         </style>
             
