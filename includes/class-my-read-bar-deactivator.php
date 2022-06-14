@@ -3,8 +3,8 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       https://mobeenabdullah.com
- * @since      1.0.0
+ * @link  https://mobeenabdullah.com
+ * @since 1.0.0
  *
  * @package    My_Read_Bar
  * @subpackage My_Read_Bar/includes
@@ -20,17 +20,19 @@
  * @subpackage My_Read_Bar/includes
  * @author     Mobeen Abdullah <mobeenabdullah@gmail.com>
  */
-class My_Read_Bar_Deactivator {
+class My_Read_Bar_Deactivator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since 1.0.0
+     */
+    public static function deactivate()
+    {
 
-	}
+    }
 
 }
