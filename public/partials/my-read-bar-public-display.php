@@ -73,7 +73,7 @@ class DisplayBar
     public function mpb_public_html()
     {
 
-        if((!empty($this->frontPage) && is_front_page()) || is_home() && !empty($this->homePage) ) {
+        if( is_home() && !empty($this->homePage) ) {
             ?>
             <progress value='0'></progress>
                 <?php
