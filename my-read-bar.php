@@ -8,9 +8,9 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://mobeenabdullah.com
- * @since             1.0.0
- * @package           My_Read_Bar
+ * @link    https://mobeenabdullah.com
+ * @since   1.0.0
+ * @package My_Read_Bar
  *
  * @wordpress-plugin
  * Plugin Name:       My Read Bar
@@ -26,8 +26,8 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (! defined('WPINC') ) {
+    die;
 }
 
 /**
@@ -35,34 +35,36 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'MY_READ_BAR_VERSION', '1.0.0' );
+define('MY_READ_BAR_VERSION', '1.0.0');
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-my-read-bar-activator.php
  */
-function activate_my_read_bar() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-my-read-bar-activator.php';
-	My_Read_Bar_Activator::activate();
+function activate_my_read_bar()
+{
+    include_once plugin_dir_path(__FILE__) . 'includes/class-my-read-bar-activator.php';
+    My_Read_Bar_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-my-read-bar-deactivator.php
  */
-function deactivate_my_read_bar() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-my-read-bar-deactivator.php';
-	My_Read_Bar_Deactivator::deactivate();
+function deactivate_my_read_bar()
+{
+    include_once plugin_dir_path(__FILE__) . 'includes/class-my-read-bar-deactivator.php';
+    My_Read_Bar_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_my_read_bar' );
-register_deactivation_hook( __FILE__, 'deactivate_my_read_bar' );
+register_activation_hook(__FILE__, 'activate_my_read_bar');
+register_deactivation_hook(__FILE__, 'deactivate_my_read_bar');
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-my-read-bar.php';
+require plugin_dir_path(__FILE__) . 'includes/class-my-read-bar.php';
 
 /**
  * Begins execution of the plugin.
@@ -71,12 +73,13 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-my-read-bar.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since 1.0.0
  */
-function run_my_read_bar() {
+function run_my_read_bar()
+{
 
-	$plugin = new My_Read_Bar();
-	$plugin->run();
+    $plugin = new My_Read_Bar();
+    $plugin->run();
 
 }
 run_my_read_bar();
