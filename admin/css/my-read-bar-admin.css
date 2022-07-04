@@ -1,0 +1,310 @@
+/*---------------------------------------------
+00 CSS Variables
+01 Toggle Button / Checkboxes
+02 Placement Buttons
+03 Range Slider 
+04 Color Box
+05 Misc Style
+---------------------------------------------*/
+
+/* 00 CSS Variables */
+:root {
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --primary-color: #6f73d2;  
+  --light-gray: #b8b8b8;
+}
+
+/* 01 Toggle Button / Checkboxes */
+.switch_wrapper {
+  position: relative;
+}
+
+.switch {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 15px;
+  border-radius: 20px;
+  background: var(--light-gray);
+  transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  vertical-align: middle;
+  cursor: pointer;  
+  -moz-border-radius: 10px;
+}
+
+.switch::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 11px;
+  height: 11px;
+  background: #fafafa;
+  border-radius: 50%;
+  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.switch_wrapper input:checked + .switch {
+  background: var(--primary-color);
+}
+
+.switch_wrapper input {
+  opacity: 0;
+}
+
+.switch_wrapper input:checked + .switch::before {
+  left: 16px;
+  background: #fff;
+}
+
+.display_on {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;    
+  padding-left: 40px;
+}
+
+/* 02 Placement Buttons */
+.placement_wrapper {
+  display: inline-flex;    
+  height: 30px;
+  width: auto;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;    
+}
+
+.placement_wrapper .placement_label {
+  background: #fff;
+  height: 100%;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  border-radius: 0;    
+  border: 1px solid #c5c5c5;
+  transition: all 0.5s ease;
+  margin: 0 10px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.placement_wrapper .placement_label:last-child {
+    margin: 0;
+}
+
+.placement_option[type="radio"] {
+  display: none;
+}
+
+.placement_option#top:checked ~ .top_align,
+.placement_option#bottom:checked ~ .bottom_align,
+.placement_option#left:checked ~ .left_align,
+.placement_option#right:checked ~ .right_align {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.placement_option#top:checked ~ .top_align span, 
+.placement_option#bottom:checked ~ .bottom_align span, 
+.placement_option#left:checked ~ .left_align span, 
+.placement_option#right:checked ~ .right_align span {
+  background-color: var(--white-color);
+}
+
+.placement_wrapper  .placement_label span {
+  position: absolute;    
+  background-color: rgba(0,0,0,0.2);
+}
+
+.placement_wrapper  .placement_label.top_align span {
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: 5px;
+}
+
+.placement_wrapper  .placement_label.bottom_align span {
+  bottom: 2px;
+  left: 2px;
+  width: calc(100% - 4px);
+  height: 5px;
+}
+
+.placement_wrapper  .placement_label.left_align span {
+  top: 2px;
+  left: 2px;
+  width: 5px;
+  height: calc(100% - 4px);
+}
+
+.placement_wrapper  .placement_label.right_align span {
+  top: 2px;
+  right: 2px;
+  width: 5px;
+  height: calc(100% - 4px);
+}  
+
+/* 03 Range Slider  */
+.range_slider-wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  gap: 0;
+}
+
+.range_slider-wrapper output {
+  position: relative;
+  font-size: 16px;
+  font-weight: 600;
+  background-color:  var(--primary-color);;
+  padding: 0 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  transform: translateX(24px);  
+  width: 20px; 
+  text-align: center;
+}
+
+.range_slider-wrapper output::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  transform: translateY(calc(-50% - 1px)) rotate(45deg); 
+}
+
+.rangeslider--horizontal {
+  height: 4px;
+  flex: 1;
+  box-shadow: none;  
+}
+
+.rangeslider__handle {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  background-color: var(--primary-color);
+  box-shadow: none;
+  background-image: none;
+}
+
+/*
+.rangeslider__handle span.rangeslider_tooltip {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  background-color: var(--primary-color);;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 5px;
+  line-height: 1;
+}
+
+.slider_bg-transparent span.rangeslider_tooltip::after {
+  content: '%';
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.slider_height span.rangeslider_tooltip::after {
+  content: 'px';
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+*/
+.rangeslider__handle:after {
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
+  line-height: 14px;  
+  background: #ffffff;
+}
+
+.rangeslider--horizontal .rangeslider__handle {
+  top: -6px;
+}
+
+.rangeslider__fill {
+  background-color: var(--primary-color);
+}
+
+.rangeslider__handle:active {
+  background-color: var(--primary-color);
+  background-image: none;
+}
+
+.rangeslider__fill {
+  box-shadow: none;
+}
+
+.output_value {
+  width: 30px;
+  position: relative;
+  left: 20px;
+  font-size: 12px;
+  border-radius: 4px;
+  border: 1px solid var(--light-gray);
+  text-align: center;
+}
+
+
+/* 04 Color Box */
+.color_field-wrapper {
+  display: flex;
+  position: relative;
+  gap: 10px;
+}
+
+.color_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  padding: 0.5em;
+  pointer-events: none;
+  border-radius: .10em;
+  border-radius: 50%;
+}
+.pickr .pcr-button {
+  opacity: 0;
+}
+
+/* 05 Misc Style */
+table tr.custom_style_fields {
+  display: none;
+}
+
+.show_field {
+  display: table-row !important;
+}
+
+div#wpbody-content form {
+  background: #ffffff;
+  padding: 0 20px 0 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+} 
+div#wpbody-content form .mpb-title {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.09);
+}

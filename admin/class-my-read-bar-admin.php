@@ -48,16 +48,13 @@ class My_Read_Bar_Admin
      * @param string $plugin_name The name of this plugin.
      * @param string $version     The version of this plugin.
      */
-    public function __construct( $plugin_name, $version )
-    {
-
+    
+    public function __construct( $plugin_name, $version ) {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
-
         include dirname(__FILE__) . '/partials/my-read-bar-admin-display.php';
         $display = new Display();
         $display->init();
-
     }
 
     /**
@@ -65,8 +62,7 @@ class My_Read_Bar_Admin
      *
      * @since 1.0.0
      */
-    public function enqueue_styles()
-    {
+    public function enqueue_styles() {
 
         /**
          * This function is provided for demonstration purposes only.
@@ -80,8 +76,9 @@ class My_Read_Bar_Admin
          * class.
          */
 
+        wp_enqueue_style('color-picker-nano', 'https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css', array(), $this->version, 'all');
+        wp_enqueue_style('range-slider', plugin_dir_url(__FILE__) . 'css/rangeslider.css', array(), $this->version, 'all');
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/my-read-bar-admin.css', array(), $this->version, 'all');
-
     }
 
     /**
@@ -89,8 +86,7 @@ class My_Read_Bar_Admin
      *
      * @since 1.0.0
      */
-    public function enqueue_scripts()
-    {
+    public function enqueue_scripts() {
 
         /**
          * This function is provided for demonstration purposes only.
@@ -102,10 +98,10 @@ class My_Read_Bar_Admin
          * The My_Read_Bar_Loader will then create the relationship
          * between the defined hooks and the functions defined in this
          * class.
-         */
+         */        
 
+        wp_enqueue_script('color-picker', 'https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js', array( 'jquery' ), $this->version, false);        
+        wp_enqueue_script('range-slider', plugin_dir_url(__FILE__) . 'js/rangeslider.js', array( 'jquery' ), $this->version, false);
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/my-read-bar-admin.js', array( 'jquery' ), $this->version, false);
-
     }
-
 }

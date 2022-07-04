@@ -1,17 +1,33 @@
-/**
- * All of the CSS for your public-facing functionality should be
- * included in this file.
- */
-
-progress{
-    width: 100%;
+:root {
+    --white-color: #ffffff;
+    --black-color: #000000;    
+    --primary-color: #E3DC29;    
+    --light-gray: #e6e6e6;
+    --primary-shadow: #E3DC29bf;
+}
+/* body {
+    background-color: blue !important;
+} */
+  
+progress.my_progressbar {
     position: fixed;
     appearance: none;
     border: none;
     z-index: 1000;
-    border-radius: 50px;
-    
 }
-progress::-webkit-progress-value { 
+
+progress.rounded {
     border-radius: 50px;
+}
+
+progress.rounded::-webkit-progress-value {
+    border-radius: 50px;    
+}
+
+progress.normal {
+    border-radius: 0;    
+}
+
+progress.normal::-webkit-progress-value {
+    border-radius: 0;    
 }
