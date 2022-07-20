@@ -11,7 +11,7 @@
 :root {
   --white-color: #ffffff;
   --black-color: #000000;
-  --primary-color: #6f73d2;  
+  --primary-color: #6f73d2;
   --light-gray: #b8b8b8;
 }
 
@@ -31,12 +31,12 @@
   background: var(--light-gray);
   transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   vertical-align: middle;
-  cursor: pointer;  
+  cursor: pointer;
   -moz-border-radius: 10px;
 }
 
 .switch::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 2px;
   left: 3px;
@@ -44,7 +44,8 @@
   height: 11px;
   background: #fafafa;
   border-radius: 50%;
-  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .switch_wrapper input:checked + .switch {
@@ -63,18 +64,18 @@
 .display_on {
   margin-bottom: 20px;
   display: flex;
-  align-items: center;    
+  align-items: center;
   padding-left: 40px;
 }
 
 /* 02 Placement Buttons */
 .placement_wrapper {
-  display: inline-flex;    
+  display: inline-flex;
   height: 30px;
   width: auto;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 5px;    
+  border-radius: 5px;
 }
 
 .placement_wrapper .placement_label {
@@ -85,7 +86,7 @@
   align-items: center;
   justify-content: space-evenly;
   cursor: pointer;
-  border-radius: 0;    
+  border-radius: 0;
   border: 1px solid #c5c5c5;
   transition: all 0.5s ease;
   margin: 0 10px 0 0;
@@ -94,7 +95,7 @@
 }
 
 .placement_wrapper .placement_label:last-child {
-    margin: 0;
+  margin: 0;
 }
 
 .placement_option[type="radio"] {
@@ -102,52 +103,34 @@
 }
 
 .placement_option#top:checked ~ .top_align,
-.placement_option#bottom:checked ~ .bottom_align,
-.placement_option#left:checked ~ .left_align,
-.placement_option#right:checked ~ .right_align {
+.placement_option#bottom:checked ~ .bottom_align {
   background: var(--primary-color);
   border-color: var(--primary-color);
 }
 
-.placement_option#top:checked ~ .top_align span, 
-.placement_option#bottom:checked ~ .bottom_align span, 
-.placement_option#left:checked ~ .left_align span, 
-.placement_option#right:checked ~ .right_align span {
+.placement_option#top:checked ~ .top_align span,
+.placement_option#bottom:checked ~ .bottom_align span {
   background-color: var(--white-color);
 }
 
-.placement_wrapper  .placement_label span {
-  position: absolute;    
-  background-color: rgba(0,0,0,0.2);
+.placement_wrapper .placement_label span {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.placement_wrapper  .placement_label.top_align span {
-    top: 2px;
-    left: 2px;
-    width: calc(100% - 4px);
-    height: 5px;
-}
-
-.placement_wrapper  .placement_label.bottom_align span {
-  bottom: 2px;
+.placement_wrapper .placement_label.top_align span {
+  top: 2px;
   left: 2px;
   width: calc(100% - 4px);
   height: 5px;
 }
 
-.placement_wrapper  .placement_label.left_align span {
-  top: 2px;
+.placement_wrapper .placement_label.bottom_align span {
+  bottom: 2px;
   left: 2px;
-  width: 5px;
-  height: calc(100% - 4px);
+  width: calc(100% - 4px);
+  height: 5px;
 }
-
-.placement_wrapper  .placement_label.right_align span {
-  top: 2px;
-  right: 2px;
-  width: 5px;
-  height: calc(100% - 4px);
-}  
 
 /* 03 Range Slider  */
 .range_slider-wrapper {
@@ -161,30 +144,30 @@
   position: relative;
   font-size: 16px;
   font-weight: 600;
-  background-color:  var(--primary-color);;
+  background-color: var(--primary-color);
   padding: 0 10px;
   border-radius: 5px;
   color: #ffffff;
-  transform: translateX(24px);  
-  width: 20px; 
+  transform: translateX(24px);
+  width: 20px;
   text-align: center;
 }
 
 .range_slider-wrapper output::before {
-  content: '';
+  content: "";
   width: 6px;
   height: 6px;
   background-color: var(--primary-color);
   position: absolute;
   top: 50%;
   left: -3px;
-  transform: translateY(calc(-50% - 1px)) rotate(45deg); 
+  transform: translateY(calc(-50% - 1px)) rotate(45deg);
 }
 
 .rangeslider--horizontal {
   height: 4px;
   flex: 1;
-  box-shadow: none;  
+  box-shadow: none;
 }
 
 .rangeslider__handle {
@@ -196,44 +179,11 @@
   background-image: none;
 }
 
-/*
-.rangeslider__handle span.rangeslider_tooltip {
-  position: absolute;
-  top: -36px;
-  left: 50%;
-  background-color: var(--primary-color);;
-  width: auto;
-  height: auto;
-  transform: translateX(-50%);
-  padding: 5px 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  border-radius: 5px;
-  line-height: 1;
-}
-
-.slider_bg-transparent span.rangeslider_tooltip::after {
-  content: '%';
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.slider_height span.rangeslider_tooltip::after {
-  content: 'px';
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-}
-*/
 .rangeslider__handle:after {
   width: 10px;
   height: 10px;
   background-color: var(--primary-color);
-  line-height: 14px;  
+  line-height: 14px;
   background: #ffffff;
 }
 
@@ -264,7 +214,6 @@
   text-align: center;
 }
 
-
 /* 04 Color Box */
 .color_field-wrapper {
   display: flex;
@@ -280,8 +229,9 @@
   height: 14px;
   padding: 0.5em;
   pointer-events: none;
-  border-radius: .10em;
+  border-radius: 0.1em;
   border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .pickr .pcr-button {
   opacity: 0;
@@ -301,10 +251,10 @@ div#wpbody-content form {
   padding: 0 20px 0 20px;
   margin-right: 20px;
   margin-top: 20px;
-} 
+}
 div#wpbody-content form .mpb-title {
   font-size: 18px;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0,0,0,0.09);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
 }

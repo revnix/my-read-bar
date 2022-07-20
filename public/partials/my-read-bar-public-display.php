@@ -2,32 +2,18 @@
 
 class DisplayBar
 {
-    
-    // Properties
-    private $homePage;
-    private $archivePage;
-    private $singlePost;
-    private $mpbBackground;
-    private $mpbForeground;
-    private $mpbHeight;
-    private $placement;
-    private $bgtransparent;
-    private $stylesbar;
-    private $shadow;    
-    
-
     public function __construct() {    
-        $this->homePage = get_option('mpb_home_page');
-        $this->archivePage = get_option('mpb_archive');
-        $this->singlePost = get_option('mpb_single_post');
-        $this->singlePage = get_option('mpb_single_page');
-        $this->mpbBackground = get_option('mpb_background');
-        $this->mpbForeground = get_option('mpb_foreground');
-        $this->mpbHeight = get_option('mpb_height');
-        $this->placement = get_option('mpb_placement');
-        $this->bgtransparent = get_option('mpb_bg_transparent');
-        $this->stylesbar = get_option('mpb_styles');
-        $this->shadow = get_option('mpb_shadow');
+        $this->homePage = (!empty(get_option('mpb_home_page'))) ? get_option('mpb_home_page') : 0; 
+        $this->archivePage = (!empty(get_option('mpb_archive'))) ? get_option('mpb_archive') : 0;
+        $this->singlePost = (!empty(get_option('mpb_single_post'))) ? get_option('mpb_single_post') : 1; 
+        $this->singlePage = (!empty(get_option('mpb_single_page'))) ? get_option('mpb_single_page') : 0; 
+        $this->mpbBackground = (!empty(get_option('mpb_background'))) ? get_option('mpb_background') : "#e6e6e6";
+        $this->mpbForeground = (!empty(get_option('mpb_foreground'))) ? get_option('mpb_foreground') : "#e3dc29";
+        $this->mpbHeight = (!empty(get_option('mpb_height'))) ? get_option('mpb_height') : 10;
+        $this->placement = (!empty(get_option('mpb_placement'))) ? get_option('mpb_placement') : "top";
+        $this->bgtransparent = (!empty(get_option('mpb_bg_transparent'))) ? get_option('mpb_bg_transparent') : 0; 
+        $this->stylesbar = (!empty(get_option('mpb_styles'))) ? get_option('mpb_styles') : 1; 
+        $this->shadow = (!empty(get_option('mpb_shadow'))) ? get_option('mpb_shadow') : 1;
         
     }
 
@@ -69,10 +55,10 @@ class DisplayBar
                 <?php if(empty($this->shadow)) { ?>
                     box-shadow: none;
                 <?php } else { ?>                    
-                    box-shadow: 0px 0px 10px 0px <?php echo $this->mpbForeground; ?>bf;
+                    box-shadow: 0px 0px 10px 0px <?php echo esc_html($this->mpbForeground); ?>bf;
                 <?php } ?>
                 <?php if(empty($this->stylesbar)) { ?>
-                    border-radius: none;
+                    border-radius: 0;
                 <?php } else { ?>
                     border-radius: 50px;
                 <?php } ?>            
@@ -84,7 +70,7 @@ class DisplayBar
                 <?php if(empty($this->shadow)) { ?>
                     box-shadow: none;
                 <?php } else { ?>                    
-                        box-shadow: 0px 0px 10px 0px <?php echo $this->mpbForeground; ?>bf;
+                        box-shadow: 0px 0px 10px 0px <?php echo esc_html($this->mpbForeground); ?>bf;
                 <?php } ?>
             }
             <?php 
@@ -112,22 +98,22 @@ class DisplayBar
     public function mpb_public_html() {
         if( is_home() && !empty($this->homePage) ) {
             ?>
-            <progress value='0' class="<?php if($this->stylesbar) { echo $this->stylesbar; } ?> <?php if($this->placement === 'left') { echo 'left_progressbar'; } ?> <?php if($this->placement === 'right') { echo 'right_progressbar'; } ?> my_progressbar"></progress>
+            <progress value='0' class="my_progressbar"></progress>
             <?php
         }
         elseif (is_single() && !empty($this->singlePost) ) {
             ?>
-            <progress value='0' class="<?php if($this->stylesbar) { echo $this->stylesbar; } ?> my_progressbar <?php if($this->placement === 'left') { echo 'left_progressbar'; } ?> <?php if($this->placement === 'right') { echo 'right_progressbar'; } ?>" ></progress>
+            <progress value='0' class="my_progressbar" ></progress>
             <?php  
         }
         elseif(is_page() && !empty($this->singlePage)) {
             ?>
-            <progress value='0' class="<?php if($this->stylesbar) { echo $this->stylesbar; } ?> my_progressbar <?php if($this->placement === 'left') { echo 'left_progressbar'; } ?> <?php if($this->placement === 'right') { echo 'right_progressbar'; } ?>"></progress>
+            <progress value='0' class="my_progressbar"></progress>
             <?php
         }
         elseif(is_archive() && !empty($this->archivePage)) {
             ?>
-            <progress value='0' class="<?php if($this->stylesbar) { echo $this->stylesbar; } ?> my_progressbar <?php if($this->placement === 'left') { echo 'left_progressbar'; } ?> <?php if($this->placement === 'right') { echo 'right_progressbar'; } ?>"></progress>
+            <progress value='0' class="my_progressbar"></progress>
             <?php
         }
     }
